@@ -1,3 +1,3 @@
 import LiteYoutubeEmbed from './LiteYoutubeEmbed';
 
-export default { LiteYoutubeEmbed };
+export default LiteYoutubeEmbed;
