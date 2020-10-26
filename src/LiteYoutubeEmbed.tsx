@@ -4,7 +4,7 @@ import './styles.css';
 import { qs } from './utils';
 import { ILiteYouTubeEmbedProps } from './types';
 
-const LiteYouTubeEmbed = ({
+const LiteYoutubeEmbed = ({
   id,
   params = {},
   defaultPlay = false,
@@ -73,4 +73,4 @@ const LiteYouTubeEmbed = ({
   );
 };
 
-export default React.memo(LiteYouTubeEmbed);
+export default React.memo(LiteYoutubeEmbed);
