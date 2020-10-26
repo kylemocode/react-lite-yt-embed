@@ -12,7 +12,7 @@ const LiteYouTubeEmbed = ({
   isPlaylist = false,
   noCookie = true,
   mute = true,
-}: ILiteYouTubeEmbedProps): React.Component => {
+}: ILiteYouTubeEmbedProps): React.ComponentType => {
   const [isPreconnected, setIsPreconnected] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(defaultPlay);
 
