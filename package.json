@@ -1,6 +1,6 @@
 {
   "name": "react-lite-yt-embed",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "React component version of lite-youtube-embed package.",
   "main": "dist/app.js",
   "types": "dist/index.d.ts",
@@ -11,6 +11,10 @@
     "react",
     "lite-youtube-embed"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kylemocode/react-lite-yt-embed"
+  },
   "author": "kylemocode",
   "license": "MIT",
   "dependencies": {},

@@ -1,8 +1,8 @@
 # React Lite Youtube Embed
 React component version of [lite-youtube-embed]([https://](https://github.com/paulirish/lite-youtube-embed)), which focus on visual performance, rendering just like the real thing but much faster.
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkylemocode%2FConsumerX.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkylemocode%2FConsumerX?ref=badge_shield)
-[![Weekly Downloads](https://img.shields.io/npm/dw/consumer-x)](https://img.shields.io/npm/dw/consumer-x)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed?ref=badge_shield)
+[![Weekly Downloads](https://img.shields.io/npm/dw/react-lite-yt-embed)](https://img.shields.io/npm/dw/react-lite-yt-embed)
 
 ![](https://i.imgur.com/7QkCbgl.gif)
 
@@ -58,4 +58,4 @@ import LiteYoutubeEmbed from 'react-lite-yt-embed';
   - [ ] CI/CD pipeline
 
 ## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkylemocode%2FConsumerX.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkylemocode%2FConsumerX?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed?ref=badge_large)
