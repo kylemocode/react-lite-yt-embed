@@ -16,7 +16,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/typescript', '@babel/preset-env'],
+            presets: ['@babel/typescript', '@babel/preset-env', '@babel/preset-react'],
           },
         },
         exclude: '/node_modules/',
