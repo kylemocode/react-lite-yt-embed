@@ -1,8 +1,8 @@
 {
   "name": "react-lite-yt-embed",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "React component version of lite-youtube-embed package.",
-  "main": "dist/app.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "webpack -q-config webpack.config.js"
