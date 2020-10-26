@@ -29,7 +29,7 @@ $ npm install react-lite-yt-embed
 ## Basic Usage
 
 ```javascript
-import LiteYoutubeEmbed from 'react-lite-yt-embed';
+import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 
 // In your react component
 <>
