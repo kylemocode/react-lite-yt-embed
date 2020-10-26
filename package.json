@@ -1,6 +1,6 @@
 {
   "name": "react-lite-yt-embed",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React component version of lite-youtube-embed package.",
   "main": "dist/app.js",
   "types": "dist/index.d.ts",
@@ -19,9 +19,14 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/webpack": "^4.41.23",
+    "babel-loader": "^8.1.0",
     "css-loader": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
