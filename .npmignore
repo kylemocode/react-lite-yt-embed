@@ -1,4 +1,4 @@
 /src
 tsconfig.json
-webpack.config.json
+webpack.config.js
 package-lock.json
