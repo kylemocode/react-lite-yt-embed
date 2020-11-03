@@ -73,4 +73,4 @@ const LiteYoutubeEmbed = ({
   );
 };
 
-export default React.memo(LiteYoutubeEmbed);
+export default LiteYoutubeEmbed;

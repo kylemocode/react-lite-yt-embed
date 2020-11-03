@@ -7,20 +7,18 @@ module.exports = {
   },
   target: 'web',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /.ts$/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/typescript', '@babel/preset-env', '@babel/preset-react'],
+            presets: ['@babel/typescript', '@babel/preset-env'],
           },
         },
-        exclude: '/node_modules/',
-
       },
       {
         test: /.tsx$/,
@@ -30,7 +28,6 @@ module.exports = {
             presets: ['@babel/typescript', '@babel/preset-react', '@babel/preset-env'],
           },
         },
-        exclude: '/node_modules/',
       },
       {
         test: /\.tsx$/,
