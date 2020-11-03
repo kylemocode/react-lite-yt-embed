@@ -2,41 +2,34 @@ const path = require('path');
 
 module.exports = {
   mode: 'none',
-  entry: {
-    app: path.join(__dirname, 'src', 'index.ts')
-  },
+  entry: path.join(__dirname, 'src', 'index.tsx'),
   target: 'web',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   module: {
     rules: [
+      // {
+      //   test: /.ts$/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/typescript', '@babel/preset-env'],
+      //     },
+      //   },
+      // },
+      // {
+      //   test: /.tsx$/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/typescript', '@babel/preset-react', '@babel/preset-env'],
+      //     },
+      //   },
+      // },
       {
-        test: /.ts$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/typescript', '@babel/preset-env'],
-          },
-        },
-      },
-      {
-        test: /.tsx$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/typescript', '@babel/preset-react', '@babel/preset-env'],
-          },
-        },
-      },
-      {
-        test: /\.tsx$/,
-        use: 'ts-loader',
-        exclude: '/node_modules/'
-      },
-      {
-        test: /\.ts?$/,
-        use: 'ts-loader',
+        test: /\.(ts|tsx)$/,
+        use: 'awesome-typescript-loader',
         exclude: '/node_modules/'
       },
       {
