@@ -1,8 +1,22 @@
 import React, { useState } from 'react';
 
-import './styles.css';
-import { qs } from './utils';
-import { ILiteYouTubeEmbedProps } from './types';
+import styles from './styles.module.css';
+
+const qs = (params: Record<string, string>) => {
+  return Object.keys(params)
+  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+  .join('&');
+}
+
+interface ILiteYouTubeEmbedProps {
+  id: string;
+  adLinksPreconnect?: boolean;
+  defaultPlay?: boolean; // set defaultPlay as `true` will directly show youtube iframe
+  isPlaylist?: boolean;
+  noCookie?: boolean;
+  mute?: boolean;
+  params?: Record<string, string>;
+}
 
 const LiteYoutubeEmbed = ({
   id,
@@ -17,7 +31,7 @@ const LiteYoutubeEmbed = ({
   const [iframeLoaded, setIframeLoaded] = useState(defaultPlay);
 
   const muteParam = mute || defaultPlay ? '1' : '0'; // Default play must be mute
-  const queryString = qs({ autoPlay: '1', mute: muteParam, ...params });
+  const queryString = qs({ autoplay: '1', mute: muteParam, ...params });
   const posterUrl = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; // * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
   const ytUrl = noCookie ? 'https://www.youtube-nocookie.com' : 'https://www.youtube.com';
   const iframeSrc = isPlaylist ? `${ytUrl}/embed/videoseries?list=${id}` : `${ytUrl}/embed/${id}?${queryString}`;
@@ -54,10 +68,10 @@ const LiteYoutubeEmbed = ({
       <div
         onClick={loadIframeFunc} 
         onPointerOver={warmConnections}
-        className={`yt-lite ${iframeLoaded && 'lyt-activated'}`}
+        className={`${styles['yt-lite']} ${iframeLoaded && styles['lyt-activated']}`}
         style={{ backgroundImage: `url(${posterUrl})`}}
       >
-        <div className={'lty-playbtn'}></div>
+        <div className={`${styles['lty-playbtn']}`}></div>
         {iframeLoaded && (
           <iframe
             width='560'

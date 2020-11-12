@@ -1,6 +1,6 @@
-/src
+src
 webpack.config.js
 tsconfig.json
 yarn.lock
-dist/index.js.LICENSE.txt
 .babelrc
+.github

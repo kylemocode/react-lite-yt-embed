@@ -1,5 +1,5 @@
 # React Lite Youtube Embed
-React component version of [lite-youtube-embed]([https://](https://github.com/paulirish/lite-youtube-embed)), which focus on visual performance, rendering just like the real thing but much faster.
+React component version of [lite-youtube-embed]([https://](https://github.com/paulirish/lite-youtube-embed)) power by tsdx, which focus on visual performance, rendering just like the real thing but much faster.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed?ref=badge_shield)
 [![Weekly Downloads](https://img.shields.io/npm/dw/react-lite-yt-embed)](https://img.shields.io/npm/dw/react-lite-yt-embed)
@@ -35,6 +35,7 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 <>
   <LiteYoutubeEmbed id={id}> {/* ID of youtube video */}
   {/* You can add more props, see the description below. */}
+  {/* You can also give the iframe an outer container */}
 </>
 ```
 
@@ -53,8 +54,8 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 ## Roadmap
   - [ ] Use react-testing-library to test whether component render correctly.
   - [ ] More features
-  - [ ] Setup lint-stage
-  - [ ] Add Prettier
+  - [x] Setup lint-stage
+  - [x] Add Prettier
   - [ ] CI/CD pipeline
 
 ## License
