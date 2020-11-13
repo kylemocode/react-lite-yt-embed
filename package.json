@@ -1,5 +1,5 @@
 {
-  "version": "1.1.5",
+  "version": "1.1.6",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -36,14 +36,9 @@
   },
   "name": "react-lite-yt-embed",
   "author": "kylemocode",
-  "module": "dist/test.esm.js",
   "size-limit": [
     {
       "path": "dist/test.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/test.esm.js",
       "limit": "10 KB"
     }
   ],

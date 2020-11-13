@@ -21,6 +21,8 @@ or
 $ npm install react-lite-yt-embed
 ```
 
+### Sandbox Example
+[![codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/blissful-fog-d02pi?file=/src/App.js)
 
 ## Overview
 ### Introduction
@@ -49,7 +51,7 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 | noCookie          | false    | true            | `boolean`                                     | Use "https://www.youtube-nocookie.com" as path or "https://www.youtube.com"                                                        |
 | mute              | false    | true            | `boolean`                                     | Set the video is mute or not.                                                                                                      |
 | params            | false    | {}              | `Object<string, string>`                      | Query string params (autoplay and mute are default query string, you do not have to set them), the value have to be a string type. |
-| isMobile          | false    | false           | `boolean`                                     | Use in mobile device or not.                                                                                                       |
+| isMobile          | false    | false           | `boolean`                                     | Use in mobile device or not,use hqdefault as the default resolution of the thumbnail.                                                                                                       |
 | mobileResolution  | false    | 'hqdefault'     | 'hqdefault' \| 'sddefault' \| 'maxresdefault' | You can specify the resolution of the thumbnail image on the phone (default is hqdefault, which is a lower resolution).            |
 | desktopResolution | false    | 'maxresdefault' | 'hqdefault' \| 'sddefault' \| 'maxresdefault' | You can specify the resolution of the thumbnail image on the desktop (default is maxresdefault, which is the highest resolution).  |
 
