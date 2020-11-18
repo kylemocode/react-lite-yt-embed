@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 import styles from './styles.module.css';
+import { qs } from './utils';
 
-const qs = (params: Record<string, string>) => {
-  return Object.keys(params)
-  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-  .join('&');
+enum thumbnailResolution {
+  HIGH = 'maxresdefault',
+  MEDIUM = 'sddefault',
+  LOW = 'hqdefault'
 }
 
 // https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api
-type ResolutionType = 'maxresdefault' | 'sddefault' | 'hqdefault';
+type ResolutionType = thumbnailResolution.HIGH | thumbnailResolution.MEDIUM | thumbnailResolution.LOW;
 
 interface ILiteYouTubeEmbedProps {
   id: string;
@@ -33,11 +34,11 @@ const LiteYoutubeEmbed = ({
   noCookie = true,
   mute = true,
   isMobile = false,
-  mobileResolution = 'hqdefault',
-  desktopResolution = 'maxresdefault',
+  mobileResolution = thumbnailResolution.LOW,
+  desktopResolution = thumbnailResolution.HIGH,
 }: ILiteYouTubeEmbedProps): React.ReactElement => {
   const muteParam = mute || defaultPlay ? '1' : '0'; // Default play must be mute
-  const queryString = qs({ autoplay: '1', mute: muteParam, ...params });
+  const queryString = useMemo(() => qs({ autoplay: '1', mute: muteParam, ...params }), []);
   const defaultPosterUrl = isMobile ? `https://i.ytimg.com/vi/${id}/${mobileResolution}.jpg` : `https://i.ytimg.com/vi/${id}/${desktopResolution}.jpg`; 
   const ytUrl = noCookie ? 'https://www.youtube-nocookie.com' : 'https://www.youtube.com';
   const iframeSrc = isPlaylist ? `${ytUrl}/embed/videoseries?list=${id}` : `${ytUrl}/embed/${id}?${queryString}`; // * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -46,19 +47,20 @@ const LiteYoutubeEmbed = ({
   const [iframeLoaded, setIframeLoaded] = useState(defaultPlay);
   const [posterUrl, setPosterUrl] = useState(defaultPosterUrl);
 
-  const warmConnections = () => {
+  const warmConnections = useCallback(() => {
     if (isPreconnected) return;
     setIsPreconnected(true);
-  };
+  }, []);
 
-  const loadIframeFunc = () => {
+  const loadIframeFunc = useCallback(() => {
     if (iframeLoaded) return;
     setIframeLoaded(true);
-  };
+  }, []);
 
   // fallback to hqdefault resolution if maxresdefault is not supported.
   useEffect(() => {
-    if ((isMobile && mobileResolution === 'hqdefault') || (!isMobile && desktopResolution === 'hqdefault')) return;
+    if ((isMobile && mobileResolution === thumbnailResolution.LOW) || (!isMobile && desktopResolution === thumbnailResolution.LOW)) return;
+
     const img = new Image();
     img.onload = function() {
       if (img.width === 120 || img.width === 0) setPosterUrl(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
