@@ -9,7 +9,7 @@ React component version of [lite-youtube-embed](https://github.com/paulirish/lit
 # Quick Start
 
 ## Install
-Please use version above @1.2.1, version below that is experimental and therefore may cause some runtime error.
+Please use version at least above @1.2.1, version below that is experimental and therefore may cause some runtime error.
 
 [react-lite-yt-embed](https://www.npmjs.com/package/react-lite-yt-embed)
 ```shell
