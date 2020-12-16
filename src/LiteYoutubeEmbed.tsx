@@ -3,14 +3,8 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import styles from './styles.module.css';
 import { qs } from './utils';
 
-enum thumbnailResolution {
-  HIGH = 'maxresdefault',
-  MEDIUM = 'sddefault',
-  LOW = 'hqdefault'
-}
-
 // https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api
-type ResolutionType = thumbnailResolution.HIGH | thumbnailResolution.MEDIUM | thumbnailResolution.LOW;
+type ResolutionType = 'maxresdefault' | 'sddefault' | 'hqdefault';
 
 interface ILiteYouTubeEmbedProps {
   id: string;
@@ -34,8 +28,8 @@ const LiteYoutubeEmbed = ({
   noCookie = true,
   mute = true,
   isMobile = false,
-  mobileResolution = thumbnailResolution.LOW,
-  desktopResolution = thumbnailResolution.HIGH,
+  mobileResolution = 'hqdefault',
+  desktopResolution = 'maxresdefault',
 }: ILiteYouTubeEmbedProps): React.ReactElement => {
   const muteParam = mute || defaultPlay ? '1' : '0'; // Default play must be mute
   const queryString = useMemo(() => qs({ autoplay: '1', mute: muteParam, ...params }), []);
@@ -59,7 +53,7 @@ const LiteYoutubeEmbed = ({
 
   // fallback to hqdefault resolution if maxresdefault is not supported.
   useEffect(() => {
-    if ((isMobile && mobileResolution === thumbnailResolution.LOW) || (!isMobile && desktopResolution === thumbnailResolution.LOW)) return;
+    if ((isMobile && mobileResolution === 'hqdefault') || (!isMobile && desktopResolution === 'hqdefault')) return;
 
     const img = new Image();
     img.onload = function() {

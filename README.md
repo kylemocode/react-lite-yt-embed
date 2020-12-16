@@ -59,6 +59,16 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 | mobileResolution  | false    | 'hqdefault'     | 'hqdefault' \| 'sddefault' \| 'maxresdefault' | You can specify the resolution of the thumbnail image on the phone (default is hqdefault, which is a lower resolution).            |
 | desktopResolution | false    | 'maxresdefault' | 'hqdefault' \| 'sddefault' \| 'maxresdefault' | You can specify the resolution of the thumbnail image on the desktop (default is maxresdefault, which is the highest resolution).  |
 
+## Run on local development environment
+  - Clone the repo
+  - npm install | yarn install
+  - Make your change or contribution
+  - npm run build (in root folder)
+  - cd in example folder & run npm install
+  - npm run build (in example folder)
+  - npm run start (in example folder)
+  - visit localhost:1234 in the browser
+
 ## Roadmap (Welcome contribution)
   - [ ] Use react-testing-library to test whether component render correctly.
   - [ ] More features
