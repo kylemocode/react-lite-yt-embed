@@ -26,7 +26,7 @@ const App = () => {
       <br />
       <p>Give it an outer container</p>
       <div style={{ width: "200px", height: "100px" }}>
-        <LiteYoutubeEmbed id="ZPBWje2kJ_U" />
+        <LiteYoutubeEmbed id="ZPBWje2kJ_U" lazyImage={true} />
       </div>
     </>
   );

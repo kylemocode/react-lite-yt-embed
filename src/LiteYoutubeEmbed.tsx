@@ -17,6 +17,7 @@ interface ILiteYouTubeEmbedProps {
   isMobile?: boolean;
   mobileResolution?: ResolutionType;
   desktopResolution?: ResolutionType;
+  lazyImage?: boolean;
 }
 
 const LiteYoutubeEmbed = ({
@@ -30,6 +31,7 @@ const LiteYoutubeEmbed = ({
   isMobile = false,
   mobileResolution = 'hqdefault',
   desktopResolution = 'maxresdefault',
+  lazyImage = false,
 }: ILiteYouTubeEmbedProps): React.ReactElement => {
   const muteParam = mute || defaultPlay ? '1' : '0'; // Default play must be mute
   const queryString = useMemo(() => qs({ autoplay: '1', mute: muteParam, ...params }), []);
@@ -55,6 +57,7 @@ const LiteYoutubeEmbed = ({
   useEffect(() => {
     if ((isMobile && mobileResolution === 'hqdefault') || (!isMobile && desktopResolution === 'hqdefault')) return;
 
+    // If the image ever loaded one time, this part will use cache data, won't cause a new network request.
     const img = new Image();
     img.onload = function() {
       if (img.width === 120 || img.width === 0) setPosterUrl(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
@@ -85,8 +88,11 @@ const LiteYoutubeEmbed = ({
         onClick={loadIframeFunc} 
         onPointerOver={warmConnections}
         className={`${styles['yt-lite']} ${iframeLoaded && styles['lyt-activated']}`}
-        style={{ backgroundImage: `url(${posterUrl})`}}
       >
+        <img 
+          src={posterUrl}
+          className={`${styles['yt-lite-thumbnail']}`}
+          loading={lazyImage ? 'lazy' : undefined}/>
         <div className={`${styles['lty-playbtn']}`}></div>
         {iframeLoaded && (
           <iframe

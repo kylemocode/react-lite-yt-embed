@@ -50,15 +50,16 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 
 | props             | required | default value   | Type                                          | Description                                                                                                                        |
 |-------------------|----------|-----------------|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| id                | true     | none            | `string`                                      | The unique id of the YouTube video                                                                                                 |
-| defaultPlay       | false    | false           | `boolean`                                     | Set defaultPlay as  `true`  will directly show YouTube iframe                                                                      |
+| id                | true     | none            | `string`                                      | The unique id of the youtube video                                                                                                 |
+| defaultPlay       | false    | false           | `boolean`                                     | Set defaultPlay as  `true`  will directly show youtube iframe                                                                      |
 | isPlaylist        | false    | false           | `boolean`                                     | If you want to play playlist, set this as `true` and pass the playlist id                                                          |
 | noCookie          | false    | true            | `boolean`                                     | Use "https://www.youtube-nocookie.com" as path or "https://www.youtube.com"                                                        |
 | mute              | false    | true            | `boolean`                                     | Set the video is mute or not.                                                                                                      |
 | params            | false    | {}              | `Object<string, string>`                      | Query string params (autoplay and mute are default query string, you do not have to set them), the value have to be a string type. |
-| isMobile          | false    | false           | `boolean`                                     | Use in mobile device or not,use hqdefault as the default resolution of the thumbnail.                                                                                                       |
+| isMobile          | false    | false           | `boolean`                                     | Use in mobile device or not.                                                                                                       |
 | mobileResolution  | false    | 'hqdefault'     | 'hqdefault' \| 'sddefault' \| 'maxresdefault' | You can specify the resolution of the thumbnail image on the phone (default is hqdefault, which is a lower resolution).            |
 | desktopResolution | false    | 'maxresdefault' | 'hqdefault' \| 'sddefault' \| 'maxresdefault' | You can specify the resolution of the thumbnail image on the desktop (default is maxresdefault, which is the highest resolution).  |
+| lazyImage         | false    | false           | `boolean`                                     | If true, set the img loading attribute to 'lazy', default is undefined.                                                            |
 
 ## Run on local development environment
   - Clone the repo
