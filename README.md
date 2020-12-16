@@ -1,4 +1,4 @@
-# React Lite Youtube Embed
+# React Lite YouTube Embed
 React component version of [lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed) build with tsdx, which focus on visual performance, rendering just like the real thing but much faster.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed?ref=badge_shield)
@@ -9,6 +9,7 @@ React component version of [lite-youtube-embed](https://github.com/paulirish/lit
 # Quick Start
 
 ## Install
+Please use version above @1.2.0, version below that is experimental and therefore may cause some runtime error.
 
 [react-lite-yt-embed](https://www.npmjs.com/package/react-lite-yt-embed)
 ```shell
@@ -29,8 +30,8 @@ $ npm install react-lite-yt-embed
 'react-lite-yt-embed' is a react component version of popular package [lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed), which can use in React project including SSR and CSR project. It renders just like the real iframe but way much faster.
 
 ### Why is it faster than normal iframe ?
-- Preload the youtube thumbnail image when page loaded. [Make image load faster]
-- Preconnect youtube domain when mouse hover on the component. [Save 3 round-trip-time (DNS lookup + TCP handshake + SSL negotiation) before user click play button, making iframe load faster]
+- Preload the YouTube thumbnail image when page loaded. [Make image load faster]
+- Preconnect YouTube domain when mouse hover on the component. [Save 3 round-trip-time (DNS lookup + TCP handshake + SSL negotiation) before user click play button, making iframe load faster]
 
 ## Basic Usage
 
@@ -39,7 +40,7 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 
 // In your react component
 <>
-  <LiteYoutubeEmbed id={id}> {/* ID of youtube video */}
+  <LiteYoutubeEmbed id={id}> {/* ID of YouTube video */}
   {/* You can add more props, see the description below. */}
   {/* You can also give the iframe an outer container */}
 </>
@@ -49,8 +50,8 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 
 | props             | required | default value   | Type                                          | Description                                                                                                                        |
 |-------------------|----------|-----------------|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| id                | true     | none            | `string`                                      | The unique id of the youtube video                                                                                                 |
-| defaultPlay       | false    | false           | `boolean`                                     | Set defaultPlay as  `true`  will directly show youtube iframe                                                                      |
+| id                | true     | none            | `string`                                      | The unique id of the YouTube video                                                                                                 |
+| defaultPlay       | false    | false           | `boolean`                                     | Set defaultPlay as  `true`  will directly show YouTube iframe                                                                      |
 | isPlaylist        | false    | false           | `boolean`                                     | If you want to play playlist, set this as `true` and pass the playlist id                                                          |
 | noCookie          | false    | true            | `boolean`                                     | Use "https://www.youtube-nocookie.com" as path or "https://www.youtube.com"                                                        |
 | mute              | false    | true            | `boolean`                                     | Set the video is mute or not.                                                                                                      |
