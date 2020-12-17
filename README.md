@@ -33,7 +33,7 @@ $ npm install react-lite-yt-embed
 - Preload the YouTube thumbnail image when page loaded. [Make image load faster]
 - Preconnect YouTube domain when mouse hover on the component. [Save 3 round-trip-time (DNS lookup + TCP handshake + SSL negotiation) before user click play button, making iframe load faster]
 
-### WebP Support
+### WebP Support (support after version @1.2.4)
 'react-lite-yt-embed' support WebP image format, which is generally 25% - 35% smaller than jpg image, so the network request time will also decrease, making your web app render even faster.
 
 If you use some browsers that not totally support WebP, for example, Safari, 'react-lite-yt-embed' will fallback the image to jpg automatically.
