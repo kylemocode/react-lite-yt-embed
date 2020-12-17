@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 
 import styles from './styles.module.css';
 import { qs } from './utils';
@@ -35,13 +35,15 @@ const LiteYoutubeEmbed = ({
 }: ILiteYouTubeEmbedProps): React.ReactElement => {
   const muteParam = mute || defaultPlay ? '1' : '0'; // Default play must be mute
   const queryString = useMemo(() => qs({ autoplay: '1', mute: muteParam, ...params }), []);
-  const defaultPosterUrl = isMobile ? `https://i.ytimg.com/vi/${id}/${mobileResolution}.jpg` : `https://i.ytimg.com/vi/${id}/${desktopResolution}.jpg`; 
+  const defaultPosterUrl = isMobile ? `https://i.ytimg.com/vi_webp/${id}/${mobileResolution}.webp` : `https://i.ytimg.com/vi_webp/${id}/${desktopResolution}.webp`;
+  const fallbackPosterUrl = isMobile ? `https://i.ytimg.com/vi/${id}/${mobileResolution}.jpg` : `https://i.ytimg.com/vi/${id}/${desktopResolution}.jpg`;
   const ytUrl = noCookie ? 'https://www.youtube-nocookie.com' : 'https://www.youtube.com';
   const iframeSrc = isPlaylist ? `${ytUrl}/embed/videoseries?list=${id}` : `${ytUrl}/embed/${id}?${queryString}`; // * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
 
   const [isPreconnected, setIsPreconnected] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(defaultPlay);
   const [posterUrl, setPosterUrl] = useState(defaultPosterUrl);
+  const isWebpSupported = useRef(true);
 
   const warmConnections = useCallback(() => {
     if (isPreconnected) return;
@@ -55,12 +57,19 @@ const LiteYoutubeEmbed = ({
 
   // fallback to hqdefault resolution if maxresdefault is not supported.
   useEffect(() => {
-    if ((isMobile && mobileResolution === 'hqdefault') || (!isMobile && desktopResolution === 'hqdefault')) return;
+    if ((isMobile && mobileResolution === 'hqdefault') || (!isMobile && desktopResolution === 'hqdefault') && !isWebpSupported.current) return;
 
-    // If the image ever loaded one time, this part will use cache data, won't cause a new network request.
+    // If the image ever loaded one time (in this case is preload link), this part will use cache data, won't cause a new network request.
     const img = new Image();
     img.onload = function() {
-      if (img.width === 120 || img.width === 0) setPosterUrl(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
+      if (img.width === 120 || img.width === 0) {
+        if (!isWebpSupported.current) setPosterUrl(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
+        else setPosterUrl(`https://i.ytimg.com/vi_webp/${id}/hqdefault`);
+      }
+    };
+    img.onerror = function() {
+      isWebpSupported.current = false;
+      setPosterUrl(fallbackPosterUrl);
     };
     img.src = posterUrl;
   }, [id, posterUrl]);
@@ -89,7 +98,7 @@ const LiteYoutubeEmbed = ({
         onPointerOver={warmConnections}
         className={`${styles['yt-lite']} ${iframeLoaded && styles['lyt-activated']}`}
       >
-        <img 
+        <img
           src={posterUrl}
           className={`${styles['yt-lite-thumbnail']}`}
           loading={lazyImage ? 'lazy' : undefined}/>
