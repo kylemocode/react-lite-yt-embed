@@ -79,8 +79,7 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
   - visit localhost:1234 in the browser
 
 ## Roadmap (Welcome contribution)
-  - [ ] Use react-testing-library to test whether component render correctly.
-  - [ ] More features
+  - [ ] Testing
   - [ ] CI/CD pipeline
 
 ## License
