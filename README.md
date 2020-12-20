@@ -26,6 +26,15 @@ $ npm install react-lite-yt-embed
 [![codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/blissful-fog-d02pi?file=/src/App.js)
 
 ## Overview
+
+### Features 🎉
+- Preconnect YouTube domain while mouseover
+- Preload thumbnail image to improve user experience
+- WebP support, and fallback to jpg if the browser not support it
+- Provides many props which can customize frame behaviors
+- Lazy load support
+- Render fast, improve your web's performance
+
 ### Introduction
 'react-lite-yt-embed' is a react component version of popular package [lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed), which can use in React project including SSR and CSR project. It renders just like the real iframe but way much faster.
 
