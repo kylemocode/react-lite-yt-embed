@@ -97,6 +97,7 @@ const LiteYoutubeEmbed = ({
         onClick={loadIframeFunc} 
         onPointerOver={warmConnections}
         className={`${styles['yt-lite']} ${iframeLoaded && styles['lyt-activated']}`}
+        data-testid='lite-yt-embed'
       >
         <img
           src={posterUrl}
