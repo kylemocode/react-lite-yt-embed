@@ -5,3 +5,4 @@ yarn.lock
 .babelrc
 .github
 example
+.travis.yml
