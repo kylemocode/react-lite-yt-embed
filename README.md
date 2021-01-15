@@ -2,7 +2,7 @@
 React component version of [lite-youtube-embed](https://github.com/paulirish/lite-youtube-embed) scaffolded with tsdx, which focus on visual performance, rendering just like the real thing but much faster.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkylemocode%2Freact-lite-yt-embed?ref=badge_shield)
-![Download]]https://img.shields.io/npm/dt/react-lite-yt-embed
+![Download](https://img.shields.io/npm/dt/react-lite-yt-embed)
 
 ![](https://i.imgur.com/7QkCbgl.gif)
 
