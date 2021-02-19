@@ -12,6 +12,7 @@ interface ILiteYouTubeEmbedProps {
     mobileResolution?: ResolutionType;
     desktopResolution?: ResolutionType;
     lazyImage?: boolean;
+    imageAltText?: string;
 }
-declare const LiteYoutubeEmbed: ({ id, params, defaultPlay, adLinksPreconnect, isPlaylist, noCookie, mute, isMobile, mobileResolution, desktopResolution, lazyImage, }: ILiteYouTubeEmbedProps) => React.ReactElement;
+declare const LiteYoutubeEmbed: ({ id, params, defaultPlay, adLinksPreconnect, isPlaylist, noCookie, mute, isMobile, mobileResolution, desktopResolution, lazyImage, imageAltText, }: ILiteYouTubeEmbedProps) => React.ReactElement;
 export default LiteYoutubeEmbed;

@@ -18,6 +18,7 @@ interface ILiteYouTubeEmbedProps {
   mobileResolution?: ResolutionType;
   desktopResolution?: ResolutionType;
   lazyImage?: boolean;
+  imageAltText?: string;
 }
 
 const LiteYoutubeEmbed = ({
@@ -32,6 +33,7 @@ const LiteYoutubeEmbed = ({
   mobileResolution = 'hqdefault',
   desktopResolution = 'maxresdefault',
   lazyImage = false,
+  imageAltText = "YouTube's thumbnail image for the video.",
 }: ILiteYouTubeEmbedProps): React.ReactElement => {
   const muteParam = mute || defaultPlay ? '1' : '0'; // Default play must be mute
   const queryString = useMemo(() => qs({ autoplay: '1', mute: muteParam, ...params }), []);
@@ -102,7 +104,8 @@ const LiteYoutubeEmbed = ({
         <img
           src={posterUrl}
           className={`${styles['yt-lite-thumbnail']}`}
-          loading={lazyImage ? 'lazy' : undefined}/>
+          loading={lazyImage ? 'lazy' : undefined}
+          alt={imageAltText}/>
         <div className={`${styles['lty-playbtn']}`}></div>
         {iframeLoaded && (
           <iframe
