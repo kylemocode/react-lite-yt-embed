@@ -77,6 +77,7 @@ import { LiteYoutubeEmbed } from 'react-lite-yt-embed';
 | desktopResolution | false    | 'maxresdefault' | 'hqdefault' \| 'sddefault' \| 'maxresdefault' | You can specify the resolution of the thumbnail image on the desktop (default is maxresdefault, which is the highest resolution).  |
 | lazyImage         | false    | false           | `boolean`                                     | If true, set the img loading attribute to 'lazy', default is undefined. |
 | imageAltText      | false    | "YouTube's thumbnail for this video."  | `string`               | You can specify an alternative text description for the thumbnail image for accessibility purposes.            |
+| iframeTitle       | false    | "YouTube video."  | `string`                                     | You can specify a title for the iframe containing the video for accessibility purposes. |
 
 ## Run on local development environment
   - Clone the repo
