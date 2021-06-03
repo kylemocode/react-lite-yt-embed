@@ -77,6 +77,8 @@ var LiteYoutubeEmbed = function LiteYoutubeEmbed(_ref) {
       desktopResolution = _ref$desktopResolutio === void 0 ? 'maxresdefault' : _ref$desktopResolutio,
       _ref$lazyImage = _ref.lazyImage,
       lazyImage = _ref$lazyImage === void 0 ? false : _ref$lazyImage,
+      _ref$iframeTitle = _ref.iframeTitle,
+      iframeTitle = _ref$iframeTitle === void 0 ? "YouTube video." : _ref$iframeTitle,
       _ref$imageAltText = _ref.imageAltText,
       imageAltText = _ref$imageAltText === void 0 ? "YouTube's thumbnail image for the video." : _ref$imageAltText;
   var muteParam = mute || defaultPlay ? '1' : '0'; // Default play must be mute
@@ -166,6 +168,7 @@ var LiteYoutubeEmbed = function LiteYoutubeEmbed(_ref) {
     frameBorder: '0',
     allow: 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
     allowFullScreen: true,
+    title: iframeTitle,
     src: iframeSrc
   })));
 };
