@@ -18,6 +18,7 @@ interface ILiteYouTubeEmbedProps {
   mobileResolution?: ResolutionType;
   desktopResolution?: ResolutionType;
   lazyImage?: boolean;
+  iframeTitle?: string;
   imageAltText?: string;
 }
 
@@ -33,6 +34,7 @@ const LiteYoutubeEmbed = ({
   mobileResolution = 'hqdefault',
   desktopResolution = 'maxresdefault',
   lazyImage = false,
+  iframeTitle = "YouTube video.",
   imageAltText = "YouTube's thumbnail image for the video.",
 }: ILiteYouTubeEmbedProps): React.ReactElement => {
   const muteParam = mute || defaultPlay ? '1' : '0'; // Default play must be mute
@@ -114,6 +116,7 @@ const LiteYoutubeEmbed = ({
             frameBorder='0'
             allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
+            title={iframeTitle}
             src={iframeSrc}
           ></iframe>
         )}
